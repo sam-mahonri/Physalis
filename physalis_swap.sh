@@ -15,7 +15,7 @@ print_error() {
 clear_all(){
     clear
     echo -e "\e[1;32m2024 (c) Sam Mahonri - Physalis Linux Enhancer - SWAP Manager - \e[1;35m[CTRL+C] to Cancel\e[0m"
-    echo -e "--------------------------------------------------------------------------------------\n"
+    echo -e "----------------------------------------------------------------------------------\n"
 }
 
 clear_all
@@ -74,7 +74,7 @@ case "$choice" in
 esac
 
 # Starting SWAP memory configuration
-echo -e "\e[1;32mStarting SWAP memory configuration...\n"
+echo -e "\e[1;32mStarting SWAP memory configuration...\e[0m\n"
 
 # Disables current SWAP space and checks if it was disabled successfully
 sudo swapoff -a &> /dev/null
