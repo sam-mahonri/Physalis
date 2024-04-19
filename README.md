@@ -1,28 +1,34 @@
 # Physalis Tools
-Physalis Tools is a collection of utilities designed for configuring Linux systems, addressing common system issues. While tested primarily on ASUS® laptops, it is compatible with most devices running a Unix-like operating system and utilizing Bash.
+Physalis Tools is a collection of utilities designed for configuring Linux systems, addressing common system issues. While tested primarily on ASUS® laptops with Fedora, it is compatible with most devices running a Unix-like operating system and utilizing Bash.
 
-# Physalis Swap Manager from Physalis Tools - `physalis_swap.sh` Shell Script
-The physalis_swap.sh script is designed to facilitate the configuration of SWAP memory on a Linux system. SWAP memory, also known as virtual memory, provides additional memory space when the physical RAM is full, helping prevent system crashes due to memory exhaustion. This script also supports the BTRFS filesystem.
+# Using Physalis Tools Shell Script
+### Tools
 
-To execute the `physalis_swap.sh` shell script, follow these steps:
+- The `Swap Manager - physalis_swap.sh` script is designed to facilitate the configuration of SWAP memory on a Linux system. SWAP memory, also known as virtual memory, provides additional memory space when the physical RAM is full, helping prevent system crashes due to memory exhaustion. This script also supports the BTRFS filesystem.
+
+- The `Battery Limiter - physalis_batlimit.sh` script should be used to adjust the maximum battery charging level of a laptop. This can increase the battery's lifespan by reducing recharge cycles. This tool has been tested on an ASUS with BAT0 but should work correctly on any laptop that supports this function.
+
+- The `Discord Installer - physalis_dcinstall.sh` script was created with the difficulty of installing Discord correctly on some Linux distributions in mind. Often, it relies on third-party repositories, but this tool downloads Discord directly from the official Discord API, both the Stable and Canary versions, and installs it correctly on any Linux system, whether Debian-based (such as Ubuntu, Linux Mint, Elementary OS, Pop OS!, etc.) or Arch Linux-based (such as Fedora, Manjaro, Arco Linux, etc.). This tool also offers the option to uninstall properly. Furthermore, the installation includes some fixes that are not performed when installed from third-party repositories, such as installing necessary dependencies and configuring systemd for the correct addition of Discord to the system startup.
+---
+
+# How to use
 
 ## Step 1: Make the Script Executable
 
-Open a terminal window and navigate to the directory where `physalis_swap.sh` is located. Then, run the following command to make the script executable:
+Open a terminal window and navigate to the directory where `physalis.sh` is located. Then, run the following command to make the script executable:
 
 ```bash
-chmod +x physalis_swap.sh
+chmod +x physalis.sh
 ```
 This command grants execute permissions to the owner of the file.
+Todos os scripts subsequentes que serão chamados por meio deste será definido como executável antes da execução, então não precisa se preocupar em mudar a permissão de cada script.
 
 ## Step 2: Execute the Script
 
 Once the script is executable, you can run it using the following command:
 
 ```bash
-./physalis_swap.sh
+./physalis.sh
 ```
-This command executes the script named `physalis_swap.sh` located in the current directory (`./`).
+This command executes the script named `physalis.sh` located in the current directory (`./`).
 
-During execution, the script will display messages indicating the progress of the SWAP memory configuration process. Monitor the output to ensure everything is proceeding as expected.
-Once the script has completed execution, it will display a message indicating whether the SWAP memory configuration was successful or if there were any errors.
