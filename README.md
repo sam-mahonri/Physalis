@@ -1,5 +1,5 @@
 # Physalis Tools
-Physalis Tools is a set of tools intended for specific configurations for Linux systems as tools for correcting common system problems. Currently it only has one tool.
+Physalis Tools is a collection of utilities designed for configuring Linux systems, addressing common system issues. While tested primarily on ASUS® laptops, it is compatible with most devices running a Unix-like operating system and utilizing Bash.
 
 # Physalis Swap Manager from Physalis Tools - `physalis_swap.sh` Shell Script
 The physalis_swap.sh script is designed to facilitate the configuration of SWAP memory on a Linux system. SWAP memory, also known as virtual memory, provides additional memory space when the physical RAM is full, helping prevent system crashes due to memory exhaustion. This script also supports the BTRFS filesystem.
