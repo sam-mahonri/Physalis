@@ -19,7 +19,7 @@ executar_swap_manager() {
 }
 
 executar_battery_limiter() {
-    chmod +x ./physrc/physalis_swap.sh
+    chmod +x ./physrc/physalis_batlimit.sh
     ./physrc/physalis_batlimit.sh
 }
 
