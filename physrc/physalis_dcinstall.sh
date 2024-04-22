@@ -128,7 +128,7 @@ if [ "$package_manager" = "dnf" ]; then
         print_error
     fi
 elif [ "$package_manager" = "apt" ]; then
-    if sudo apt install -y libatomic1 libc++1 libdbusmenu-gtk4 libindicator3-7 libappindicator3-1 gconf2; then
+    if apt-get -m --ignore-missing --fix-missing install libatomic1 libc++1 libdbusmenu-gtk4 libappindicator3-1 gconf2; then
         print_success
     else
         print_error
