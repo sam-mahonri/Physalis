@@ -72,7 +72,7 @@ else
     print_error
 fi
 
-sudo rm -f /swapfile &> /dev/null
+sudo rm -f ~/swapfile &> /dev/null
 echo -n "- Removing existing SWAP file, if any... "
 if [ $? -eq 0 ]; then
     print_success
@@ -85,7 +85,7 @@ if df -T . | awk 'NR==2 {print $2}' | grep -q '^btrfs$'; then
 
     echo -n -e "\e[1;33m+ Additional step 1 (truncate)...\e[0m"
 
-    sudo truncate -s 0 /swapfile &> /dev/null
+    sudo truncate -s 0 ~/swapfile &> /dev/null
     if [ $? -eq 0 ]; then
         print_success
     else
@@ -94,7 +94,7 @@ if df -T . | awk 'NR==2 {print $2}' | grep -q '^btrfs$'; then
 
     echo -n -e "\e[1;33m+ Additional step 2 (chattr)...\e[0m"
 
-    sudo chattr +C /swapfile &> /dev/null
+    sudo chattr +C ~/swapfile &> /dev/null
     if [ $? -eq 0 ]; then
         print_success
     else
@@ -105,7 +105,7 @@ else
 fi
 
 echo -n "- Creating a new SWAP file with the desired size... "
-sudo fallocate -l "$swapsize" /swapfile &> /dev/null
+sudo fallocate -l "$swapsize" ~/swapfile &> /dev/null
 if [ $? -eq 0 ]; then
     print_success
 else
@@ -113,7 +113,7 @@ else
 fi
 
 echo -n "- Changing file permissions... "
-sudo chmod 0600 /swapfile &> /dev/null
+sudo chmod 0600 ~/swapfile &> /dev/null
 if [ $? -eq 0 ]; then
     print_success
 else
@@ -121,7 +121,7 @@ else
 fi
 
 echo -n "- Making the new file a SWAP space... "
-sudo mkswap /swapfile &> /dev/null
+sudo mkswap ~/swapfile &> /dev/null
 if [ $? -eq 0 ]; then
     print_success
 else
@@ -129,7 +129,7 @@ else
 fi
 
 echo -n "- Activating the new SWAP space... "
-sudo swapon /swapfile &> /dev/null
+sudo swapon ~/swapfile &> /dev/null
 if [ $? -eq 0 ]; then
     print_success
 else
@@ -137,7 +137,7 @@ else
 fi
 
 echo -n "- Making the change permanent... "
-echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab &> /dev/null
+echo '~/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab &> /dev/null
 if [ $? -eq 0 ]; then
     print_success
 else
