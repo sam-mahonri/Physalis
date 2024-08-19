@@ -10,6 +10,7 @@ exibir_menu() {
     echo "  1. SWAP Manager"
     echo "  2. Battery Limiter"
     echo "  3. Discord Installer"
+    echo "  4. Default Disable Fn Key in ASUS Laptops"
     echo -e "\e[1;31m  0. Exit\n\e[0m"
 }
 
@@ -28,16 +29,22 @@ executar_discord_installer(){
     ./physrc/physalis_dcinstall.sh
 }
 
+executar_deffnkey(){
+    chmod +x ./physrc/physalis_deffnkey.sh
+    ./physrc/physalis_deffnkey.sh
+}
+
 while true; do
     clear_all
     exibir_menu
 
-    read -p $'\e[1;33m< Select option [0 - 3]:\e[0m' opcao
+    read -p $'\e[1;33m< Select option [0 - 4]:\e[0m' opcao
 
     case $opcao in
         1) executar_swap_manager ;;
         2) executar_battery_limiter ;;
         3) executar_discord_installer ;;
+        4) executar_deffnkey ;;
         0) echo "Exiting..."; exit ;;
         *) echo "Invalid option. Try again." ;;
     esac
